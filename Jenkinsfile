@@ -4,7 +4,7 @@ library identifier: 'jenkins-sharedlib-newtrn@master', retriever: modernSCM([$cl
 	remote: 'https://github.com/arehmandev/trn-project.git',
 	credentialsId: GHEAccess])
 
-environmentYAMLFiles = ["mgmt-tst.yaml"]
+@Library('my-shared-library') _
 
-invokeTerraformSeed(environmentYAMLFiles, "pipelines/terraform")
+evenOrOdd(currentBuild.getNumber())
 
