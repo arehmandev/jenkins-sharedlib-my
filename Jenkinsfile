@@ -4,7 +4,7 @@ library identifier: 'jenkins-sharedlib-newtrn@master', retriever: modernSCM([$cl
 	remote: 'https://github.com/arehmandev/jenkins-sharedlib-newtrn.git',
 	credentialsId: GHEAccess])
 
-@Library('my') _
+@Library('jenkins-sharedlib-newtrn') _
 
 evenOrOdd(currentBuild.getNumber())
 
