@@ -11,17 +11,17 @@ def call(int buildNumber) {
 				defaultContainer "jnlp"
 			}
     }
-    parameters { string(name: 'VERSION', defaultValue: '', description: 'Version to deploy on prod') }
+    parameters { string(name: 'VERSION', defaultValue: '2', description: 'Version to deploy on prod') }
       stages {
         stage('Even Stage') {
           steps {
             script{ 
                 if (buildNumber % 2 == 0) {
-            echo "The build number is even"
+            echo "The build number is even ${VERSION}"
                 } else {
-            echo "The build number is odd"
-                }
-          }
+            echo "The build number is odd ${VERSION}"
+                } 
+            }
           }
         }
       }
