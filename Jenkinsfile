@@ -1,10 +1,10 @@
 String GHEAccess = 'jenkinsPAT'
 
-library identifier: 'jenkins-sharedlib-newtrn@master', retriever: modernSCM([$class: 'GitSCMSource',
-	remote: 'https://github.com/arehmandev/jenkins-sharedlib-newtrn.git',
+library identifier: 'jenkins-sharedlib-my@master', retriever: modernSCM([$class: 'GitSCMSource',
+	remote: 'https://arehmandev/jenkins-sharedlib-my.git',
 	credentialsId: GHEAccess])
 
-@Library('jenkins-sharedlib-newtrn') _
+@Library('jenkins-sharedlib-my') _
 
 evenOrOdd(currentBuild.getNumber())
 
