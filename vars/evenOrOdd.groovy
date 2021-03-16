@@ -10,7 +10,8 @@ def call(int buildNumber) {
 				yaml terraformPodTemplate
 				defaultContainer "jnlp"
 			}
-		}
+    }
+    parameters { string(name: 'VERSION', defaultValue: '', discription: 'Version to deploy on prod') }
       stages {
         stage('Even Stage') {
           steps {
