@@ -1,5 +1,3 @@
-//final evenOrOdd = library('evenOrOdd')
-@Library('jenkins-sharedlib-my') _
 String GHEAccess = 'jenkinsPAT'
 
 library identifier: 'jenkins-sharedlib-my@master', retriever: modernSCM([$class: 'GitSCMSource',
