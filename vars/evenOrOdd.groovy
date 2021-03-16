@@ -1,26 +1,28 @@
 // vars/my.groovy
 def call(int buildNumber) {
-  if (buildNumber % 2 == 0) {
+
+  	def terraformPodTemplate = libraryResource "kubernetes/podTemplate.yaml"
+
     pipeline {
-      agent any
+		agent {
+			kubernetes {
+				label "pipelinetest-${UUID.randomUUID().toString()}"
+				yaml terraformPodTemplate
+				defaultContainer "jnlp"
+			}
+		}
       stages {
         stage('Even Stage') {
           steps {
+            script{ 
+                if (buildNumber % 2 == 0) {
             echo "The build number is even"
-          }
-        }
-      }
-    }
-  } else {
-    pipeline {
-      agent any
-      stages {
-        stage('Odd Stage') {
-          steps {
+                } else {
             echo "The build number is odd"
+                }
+          }
           }
         }
       }
     }
-  }
 }
